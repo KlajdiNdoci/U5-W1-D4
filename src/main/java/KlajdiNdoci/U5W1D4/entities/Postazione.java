@@ -32,4 +32,15 @@ public class Postazione {
         this.edificio = edificio;
     }
 
+    public void setDescrizione(String descrizione) {
+        this.descrizione = descrizione;
+    }
+
+    public void setTipo_postazione(TipoPostazione tipo_postazione) {
+        this.tipo_postazione = tipo_postazione;
+    }
+
+    public void setPrenotazioni(List<Prenotazione> prenotazioni) {
+        this.prenotazioni = prenotazioni;
+    }
 }

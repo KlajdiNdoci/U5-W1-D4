@@ -1,9 +1,12 @@
 package KlajdiNdoci.U5W1D4;
 
 import KlajdiNdoci.U5W1D4.dao.IEdificioDAO;
+import KlajdiNdoci.U5W1D4.dao.IPostazioneDAO;
 import KlajdiNdoci.U5W1D4.dao.IUtenteDAO;
 import KlajdiNdoci.U5W1D4.entities.Edificio;
+import KlajdiNdoci.U5W1D4.entities.Postazione;
 import KlajdiNdoci.U5W1D4.entities.Utente;
+import KlajdiNdoci.U5W1D4.enums.TipoPostazione;
 import KlajdiNdoci.U5W1D4.exceptions.ItemNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +20,8 @@ public class MainRunner implements CommandLineRunner {
     private IUtenteDAO utenteDAO;
     @Autowired
     private IEdificioDAO edificioDAO;
+    @Autowired
+    private IPostazioneDAO postazioneDAO;
     @Override
     public void run(String... args) throws Exception {
         Utente utenteRndm = Utente.builder().build();
@@ -34,5 +39,7 @@ public class MainRunner implements CommandLineRunner {
 //        edificioDAO.save(ed2);
 //        edificioDAO.save(ed3);
 
+        Postazione p1 = Postazione.builder().tipo_postazione(TipoPostazione.OPENSPACE).descrizione("ciao").edificio(edificioDAO.findById(1)).build();
+        postazioneDAO.save(p1);
     }
 }
