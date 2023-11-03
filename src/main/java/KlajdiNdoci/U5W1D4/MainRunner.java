@@ -1,6 +1,8 @@
 package KlajdiNdoci.U5W1D4;
 
+import KlajdiNdoci.U5W1D4.dao.IEdificioDAO;
 import KlajdiNdoci.U5W1D4.dao.IUtenteDAO;
+import KlajdiNdoci.U5W1D4.entities.Edificio;
 import KlajdiNdoci.U5W1D4.entities.Utente;
 import KlajdiNdoci.U5W1D4.exceptions.ItemNotFoundException;
 import lombok.extern.slf4j.Slf4j;
@@ -13,6 +15,8 @@ import org.springframework.stereotype.Component;
 public class MainRunner implements CommandLineRunner {
     @Autowired
     private IUtenteDAO utenteDAO;
+    @Autowired
+    private IEdificioDAO edificioDAO;
     @Override
     public void run(String... args) throws Exception {
         Utente utenteRndm = Utente.builder().build();
@@ -22,6 +26,13 @@ public class MainRunner implements CommandLineRunner {
         } catch (ItemNotFoundException ex) {
             log.error(ex.getMessage());
         }
+
+        Edificio ed1 = Edificio.builder().cittá("Milano").nome("Edificio1").indirizzo("Via 1 Maggio").build();
+        Edificio ed2 = Edificio.builder().cittá("Torino").nome("Edificio2").indirizzo("Via 2 Maggio").build();
+        Edificio ed3 = Edificio.builder().cittá("Roma").nome("Edificio3").indirizzo("Via 3 Maggio").build();
+//        edificioDAO.save(ed1);
+//        edificioDAO.save(ed2);
+//        edificioDAO.save(ed3);
 
     }
 }
