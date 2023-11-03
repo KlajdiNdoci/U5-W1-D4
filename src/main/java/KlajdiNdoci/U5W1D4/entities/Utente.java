@@ -28,5 +28,15 @@ public class Utente {
         private String email = faker.internet().emailAddress();
     }
 
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
+    public void setNome_completo(String nome_completo) {
+        this.nome_completo = nome_completo;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }
