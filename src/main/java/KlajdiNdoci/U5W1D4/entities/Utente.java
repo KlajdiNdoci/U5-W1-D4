@@ -15,16 +15,18 @@ import java.util.Locale;
 public class Utente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false)
     private long id;
     private String username;
     private String nome_completo;
     private String email;
 
-    public static class UserBuilder{
+    public static class UtenteBuilder{
         private Faker faker = new Faker(Locale.ITALY);
         private String username = faker.name().username();
         private String nome_completo = faker.name().fullName();
         private String email = faker.internet().emailAddress();
-
     }
+
+
 }
